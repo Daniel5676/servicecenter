@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintMaster - Professional Printing Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --primary-light: #60a5fa;
+            --secondary: #f3f4f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --text-lighter: #9ca3af;
+            --white: #ffffff;
+            --black: #000000;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --red-500: #ef4444;
+            --green-500: #10b981;
+            --yellow-400: #fbbf24;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-sm: 0.125rem;
+            --radius: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-full: 9999px;
+            --transition: all 0.2s ease-in-out;
+            --transition-slow: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-400);
+            border-radius: var(--radius);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-500);
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0.75rem 1rem;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: none;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: none;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--gray-300);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-100);
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            color: var(--white);
+            max-width: 600px;
+            padding: 0 1.5rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-discount {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-indicators {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 2.5rem;
+            height: 0.25rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .indicator.active {
+            background-color: var(--white);
+            width: 3.5rem;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 3rem 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .section-link {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .section-link:hover {
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+            border: 2px solid var(--gray-200);
+            transition: var(--transition);
+        }
+
+        .service-item:hover .service-image {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-item:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-name {
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition-slow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-image-container {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 2;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .wishlist-btn:hover {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .wishlist-btn i {
+            color: var(--gray-500);
+            transition: var(--transition);
+        }
+
+        .wishlist-btn.active i {
+            color: var(--red-500);
+        }
+
+        .product-content {
+            padding: 1.25rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-discount {
+            color: var(--green-500);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .product-footer {
+            margin-top: auto;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--gray-100);
+            padding: 3rem 1rem;
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info {
+            flex-grow: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-stars {
+            color: var(--yellow-400);
+            font-size: 0.875rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.8rem 0.5rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 0.8rem;
+            gap: 0.3rem;
+            transition: var(--transition);
+        }
+        
+        .nav-item.active {
+            color: var(--primary);
+        }
+        
+        .nav-item:hover {
+            color: var(--primary);
+        }
+        
+        .nav-item i {
+            font-size: 1.3rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--radius);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--gray-300);
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                height: 70vh;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .service-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .bottom-nav {
+                display: none;
+            }
+
+            body {
+                padding-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container container">
+            <div class="logo">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD2o1ruxOQfQOwedvjLaUiaTY2Mwx9YSu2YsZkhWJueJkrPNNREaLIbs_CoIAD-1cp-C_5JggXUfCYkOn6WrSZV1wFvHcogwjfvgb-9OrS75YM52-WziyTb5-nLMkEATld65PFMOSrXH-XbeCYbo_pO45uVGPltccZI9NZwZatK4I0ssBK9MTIUZj062mV/s320/WhatsApp%20Image%202025-03-05%20at%2020.23.14_927e35f0.jpg" alt="PrintMaster Logo">
+                <span class="logo-text">Opolo service centre</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-outline btn-sm hidden-mobile">Contact Us</button>
+                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-sm">YOUR ORDER</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-slide active" data-index="0">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEid4FPF5Whwahet1qUYUluuMAaPrvDMz6347-TvsX8xmH85HZr1QzkgqxEpA7rdo6wwWEtiv74N3-VuPhBVYMHOqPjRpR0oWq3QDtkBMwAxHosIfdiZ0icVHIQKjqyuDEAjr9T_aIJCqj4CrgoEBDt3NzrAdLFoUXA4xGoTvEm0ePUmNP3HUmb1IF5tYLjS/s320/WhatsApp%20Image%202025-03-05%20at%2018.28.55_ac921c67.jpg" alt="Premium Printing Services" class="hero-image">
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Premium Printing Services</h1>
+                        <p class="hero-subtitle">Professional Quality, Affordable Prices</p>
+                        <div class="hero-discount">20% OFF</div>
+                        <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-lg">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" data-index="1">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgob36iZqsoR-7k1kyUshYmWGoJ7ry5-SQf00YBqDxtwFDqzRTpIgeoZ4mNkw6J0BahiiIvysOeyNK375DsG7LgJkfS_PBeTlH0aGKla_q3WKlXgHtYy9RHsVbALXESH_qDTUt5zDxj0hTAkvL3n8-sV4Wm9Zj9T-ew0drcFGlq-mk15_soCwoC8wwgP164/s320/WhatsApp%20Image%202025-03-05%20at%2018.28.55_bc406d8c.jpg" alt="Custom Design Solutions" class="hero-image">
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Get a professional freelancer</h1>
+                        <p class="hero-subtitle">Bring Your Ideas to Life</p>
+                        <div class="hero-discount">Free Consultation</div>
+                        <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-lg">HIRE NOW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" data-index="2">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw-b8OofdYW-ayqzlHrydsd6VMVjco0k2tYdFMzdskG7FEEh7P1urznl3QvmtSjjZ5-tVL8HibVwk01MyfkCP7mnXqUzwr2Smg0viDIkDJMBJ15RhdaMoFq2mjw21OpCE4SrRvj2Kiq-v_D0_VY7olmo57uaOnDAgVIeGdgpOzs6if49hQ_N9aGZHKyDyZ/s320/WhatsApp%20Image%202025-03-05%20at%2018.11.57_f49a5914.jpg" alt="Fast Turnaround Time" class="hero-image">
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Fast Turnaround Time</h1>
+                        <p class="hero-subtitle">Quality Printing When You Need It</p>
+                        <div class="hero-discount">We deliver within 24hrs</div>
+                        <!--<a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-lg"></a>-->
+                    </div>
+                </div>
+            </div>
+            <div class="hero-indicators">
+                <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Premium Services</h2>
+                    <a href="#" class="section-link">View All</a>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW49UiB7zbFn8g9ukD8Qd59Gup2mDsp9UcpRpE1l_ZPDL6CuoTjU7X53UbvLCV6tvQtlMO-Ky1nJkY5Nt4JmZUrzNCp_86-XEEenVr14i_b0YdB1J-V3_CcPOocweYHdbkPojyLxWE_ZDiwr_li_6aBS82aN8c5906-H3z4HFroEaB9-C-9IYyfV9B7nTL/s320/WhatsApp%20Image%202025-02-26%20at%2018.34.57_31a59060.jpg" alt="Banners">
+                        </div>
+                        <span class="service-name">Our printing services</span>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEho-ljDRLEBhRIEI24nHpVeTC2r3o19bmLByDBMaj6nlhyEN8_tnzDc5ucI-YpQjLBnygpz1KojMeqC14IW_0WLUWWQtci94rp4QYK_MzzglrC-60T6mcIwaAaeLFtAi06_3h67c2I7ep-bsx8Ueta7vznXu-oQTZZvofQKh4Q4IqSp_i0ivtkegXqaKnzs/s320/WhatsApp%20Image%202025-02-26%20at%2018.35.02_4e72e880.jpg" alt="Stickers">
+                        </div>
+                        <span class="service-name">Get a freelancer</span>
+                    </div>
+                    <!--<div class="service-item">
+                        <div class="service-image">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikudwxkhtyPxgBfeg8ILwMkcwf34VAJIztCvMMubEIc7MhUfcvz286cLsQJDgTkkuwtJCIb_52AFObId0DgV3GqHe7IyDDTtlxZRA13_TaCMqFJYflg0sY7HeO57I1DPD3UoZG9UZVf7FsJ0KeOusnFqTxPEw8JRZw2Ag9maMvNgOww34o0bCZP918L2vX/s320/WhatsApp%20Image%202025-02-26%20at%2018.34.59_2c4eee63.jpg" alt="Flex">
+                        </div>
+                        <span class="service-name">Flex</span>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-image">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY4IGnm4PBKiBcem70fvCqdyuMexbP-Mx9bEILh5hhJ9Dn6fD0VXQbl4Hn5p2EwDMmVCU5PMr3IdhV1D-o2lF-k1APKGvqHHtCojwFQ0ZtVYy1-JzPSTD-SDfNDOpm_GJoFHdKqqY6d5VZFrRyScgkCWGaAHwuw4DD7m0CjsefSbP_2WKEGMytdgMpx0t_/s320/WhatsApp%20Image%202025-02-26%20at%2018.34.41_62eada5c.jpg" alt="Design">
+                        </div>
+                        <span class="service-name">Design</span>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Special Offers</h2>
+                    <a href="#" class="section-link">See All</a>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSn7paPS81vDqDIHheERsztEdVutoHfFvuCVsmFicrBaXnJGmI8w7eXEk7pGzZ_HERlgD2LY0n8wvCGdi9NaY-MS4UfEBcc33Hk5_Li8CThw2fkx_evYE7dz00a59r_1G393OXE3AEMEIIxmRtRJRsBptS7GP1XQVd2faGEFbv1NR9hkIepEC_HPZ-JUYM/s320/WhatsApp%20Image%202025-03-05%20at%2018.11.55_8c4a5a07.jpg" alt="Large Format Banners" class="product-image">
+                            <button class="wishlist-btn" aria-label="Add to favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Large Format Banners</h3>
+                            <p class="product-description">Print your large banners for as low as</p>
+                            <p class="product-price">₦1,000 per feet</p>
+                            <div class="product-footer">
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib-8o99D6Oe863gUWG-uf7eLmTMuIzHhO2Fb8spQLBBnCWpRBM1w-rkuCEqfseVOJra0YJ2NIg6UItehg1phH0VgYFAMaQ6Lem8kQJEiwbBsOsX0vbzeU_uAuV-fE56wkApDj2WWojQh3MK1RyEOTKwhXmxNk3cAt-5gjNamhpE5Rj4s_35qG1xxxEVFTB/s320/WhatsApp%20Image%202025-03-05%20at%2022.04.15_28e39aa1.jpg" alt="Professional Graphic Design" class="product-image">
+                            <button class="wishlist-btn" aria-label="Add to favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Professional Graphic Design</h3>
+                            <p class="product-description">Hire a professional graphic designer for as low as</p>
+                            <p class="product-price">₦5,000 per job</p>
+                            <div class="product-footer">
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://i.pinimg.com/736x/f4/2a/dd/f42addb7adb60968f0df43293507f3bb.jpg" alt="T-Shirt Printing" class="product-image">
+                            <button class="wishlist-btn" aria-label="Add to favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">T-Shirt Printing</h3>
+                            <p class="product-description">Print on your T-shirt for as low as</p>
+                            <p class="product-price">₦500 depending on the size</p>
+                            <div class="product-footer">
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://i.pinimg.com/736x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg" alt="D.I Jobs Printing" class="product-image">
+                            <button class="wishlist-btn" aria-label="Add to favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">D.I Jobs Printing</h3>
+                            <p class="product-description">Print your D.I jobs for as low as</p>
+                            <p class="product-price">₦100 depending on the size</p>
+                            <p class="product-discount">90% discount on your first delivery fee</p>
+                            <div class="product-footer">
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://i.pinimg.com/736x/ca/90/8e/ca908ebb05309b1d70b1ecca923ce684.jpg" alt="Object Printing" class="product-image">
+                            <button class="wishlist-btn" aria-label="Add to favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Object Printing</h3>
+                            <p class="product-description">Print on objects for as low as</p>
+                            <p class="product-price">₦500 depending on the size</p>
+                            <div class="product-footer">
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://i.pinimg.com/736x/4d/6f/3c/4d6f3c387790d5eb075b357a5e368f0f.jpg" alt="Custom Printing Solutions" class="product-image">
+                            <button class="wishlist-btn" aria-label="Add to favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">Custom Printing Solutions</h3>
+                            <p class="product-description">Custom printing solutions for your business</p>
+                            <p class="product-price">Contact for pricing</p>
+                            <div class="product-footer">
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="testimonials-title">What Our Customers Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe">
+                            </div>
+                            <div class="testimonial-info">
+                                <h3 class="testimonial-name">John Doe</h3>
+                                <div class="testimonial-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">The banner quality exceeded my expectations. Fast delivery and excellent customer service!</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="testimonial-info">
+                                <h3 class="testimonial-name">Sarah Johnson</h3>
+                                <div class="testimonial-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Their graphic design service transformed my business branding. Highly recommended!</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael Brown">
+                            </div>
+                            <div class="testimonial-info">
+                                <h3 class="testimonial-name">Michael Brown</h3>
+                                <div class="testimonial-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">The t-shirt prints were vibrant and durable. Will definitely order again!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item ">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#services" class="nav-item active">
+            <i class="fas fa-print"></i>
+            <span>Services</span>
+        </a>
+        <a href="#contact" class="nav-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Location</span>
+        </a>
+        <a href="https://wa.me/message/2DEU3RUU33QEF1" class="nav-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="/placeholder.svg" alt="Product Detail" class="lightbox-image" id="lightbox-image">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Hero Slider
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            // Hide all slides
+            heroSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Deactivate all indicators
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+            });
+            
+            // Show the selected slide and activate its indicator
+            heroSlides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            showSlide(currentSlide);
+        }
+
+        // Set up click handlers for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+                resetSlideInterval();
+            });
+        });
+
+        // Start automatic slideshow
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            startSlideshow();
+        }
+
+        startSlideshow();
+
+        // Wishlist Button Functionality
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+        
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+                
+                // Optional: Add animation
+                const icon = this.querySelector('i');
+                icon.classList.add('animate-pulse');
+                setTimeout(() => {
+                    icon.classList.remove('animate-pulse');
+                }, 1000);
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const productImages = document.querySelectorAll('.product-image');
+
+        // Open lightbox when clicking on product images
+        productImages.forEach(image => {
+            image.addEventListener('click', function(e) {
+                e.preventDefault();
+                const imgSrc = this.src;
+                const imgAlt = this.alt;
+                
+                lightboxImage.src = imgSrc;
+                lightboxImage.alt = imgAlt;
+                lightbox.classList.add('active');
+                
+                // Prevent scrolling when lightbox is open
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // Intersection Observer for animations
+        const animateOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(animateOnScroll, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px'
+        });
+
+        // Observe elements to animate
+        document.querySelectorAll('.section-title, .product-card, .service-item, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Detection
+        function isMobile() {
+            return window.innerWidth < 768;
+        }
+
+        // Hide/show elements based on screen size
+        function updateResponsiveElements() {
+            const mobileElements = document.querySelectorAll('.hidden-mobile');
+            
+            if (isMobile()) {
+                mobileElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+            } else {
+                mobileElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+            }
+        }
+
+        // Initial call and event listener for resize
+        updateResponsiveElements();
+        window.addEventListener('resize', updateResponsiveElements);
+    </script>
+</body>
+</html>
