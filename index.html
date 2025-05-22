@@ -174,6 +174,48 @@
             animation: pulse 2s infinite;
         }
 
+        /* WhatsApp Popup Notification */
+        #whatsapp-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 300px;
+            background-color: #25D366;
+            color: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            box-shadow: var(--shadow-md);
+            display: none;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        #whatsapp-popup.active {
+            display: block;
+        }
+
+        .whatsapp-popup-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .whatsapp-popup-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+        }
+
+        .whatsapp-popup-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-popup-text {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
         /* Header Styles */
         header {
             position: sticky;
@@ -800,7 +842,6 @@
                         <h1 class="hero-title">Fast Turnaround Time</h1>
                         <p class="hero-subtitle">Quality Printing When You Need It</p>
                         <div class="hero-discount">We deliver within 24hrs</div>
-                        <!--<a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-lg"></a>-->
                     </div>
                 </div>
             </div>
@@ -820,7 +861,7 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-item">
-                        <a href="https://daniel5676.github.io/servicecenter/ "><div class="service-image">
+                        <a href="https://daniel5676.github.io/servicecenter/"><div class="service-image">
                             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW49UiB7zbFn8g9ukD8Qd59Gup2mDsp9UcpRpE1l_ZPDL6CuoTjU7X53UbvLCV6tvQtlMO-Ky1nJkY5Nt4JmZUrzNCp_86-XEEenVr14i_b0YdB1J-V3_CcPOocweYHdbkPojyLxWE_ZDiwr_li_6aBS82aN8c5906-H3z4HFroEaB9-C-9IYyfV9B7nTL/s320/WhatsApp%20Image%202025-02-26%20at%2018.34.57_31a59060.jpg" alt="Banners">
                         </div></a>
                         <span class="service-name">Our printing services</span>
@@ -831,18 +872,6 @@
                         </div></a>
                         <span class="service-name">Get a freelancer</span>
                     </div>
-                    <!--<div class="service-item">
-                        <div class="service-image">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikudwxkhtyPxgBfeg8ILwMkcwf34VAJIztCvMMubEIc7MhUfcvz286cLsQJDgTkkuwtJCIb_52AFObId0DgV3GqHe7IyDDTtlxZRA13_TaCMqFJYflg0sY7HeO57I1DPD3UoZG9UZVf7FsJ0KeOusnFqTxPEw8JRZw2Ag9maMvNgOww34o0bCZP918L2vX/s320/WhatsApp%20Image%202025-02-26%20at%2018.34.59_2c4eee63.jpg" alt="Flex">
-                        </div>
-                        <span class="service-name">Flex</span>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-image">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY4IGnm4PBKiBcem70fvCqdyuMexbP-Mx9bEILh5hhJ9Dn6fD0VXQbl4Hn5p2EwDMmVCU5PMr3IdhV1D-o2lF-k1APKGvqHHtCojwFQ0ZtVYy1-JzPSTD-SDfNDOpm_GJoFHdKqqY6d5VZFrRyScgkCWGaAHwuw4DD7m0CjsefSbP_2WKEGMytdgMpx0t_/s320/WhatsApp%20Image%202025-02-26%20at%2018.34.41_62eada5c.jpg" alt="Design">
-                        </div>
-                        <span class="service-name">Design</span>
-                    </div>-->
                 </div>
             </div>
         </section>
@@ -867,23 +896,23 @@
                             <p class="product-description">Print your large banners for as low as</p>
                             <p class="product-price">₦1,000 per feet</p>
                             <div class="product-footer">
-                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Print Now</a>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib-8o99D6Oe863gUWG-uf7eLmTMuIzHhO2Fb8spQLBBnCWpRBM1w-rkuCEqfseVOJra0YJ2NIg6UItehg1phH0VgYFAMaQ6Lem8kQJEiwbBsOsX0vbzeU_uAuV-fE56wkApDj2WWojQh3MK1RyEOTKwhXmxNk3cAt-5gjNamhpE5Rj4s_35qG1xxxEVFTB/s320/WhatsApp%20Image%202025-03-05%20at%2022.04.15_28e39aa1.jpg" alt="Professional Graphic Design" class="product-image">
+                            <img src="https://drive.google.com/thumbnail?id=1yNCLgrYBh3jFVW0RD6UhG4ncoFQ-njxj&sz=w1000" alt="Professional Graphic Design" class="product-image">
                             <button class="wishlist-btn" aria-label="Add to favorites">
                                 <i class="fas fa-heart"></i>
                             </button>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Professional Graphic Design</h3>
-                            <p class="product-description">Hire a professional graphic designer for as low as</p>
+                            <h3 class="product-title">Customize Anything</h3>
+                            <p class="product-description">Personalize Any Object to Suit Your Unique Style</p>
                             <p class="product-price">₦5,000 per job</p>
                             <div class="product-footer">
-                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Print Now</a>
                             </div>
                         </div>
                     </div>
@@ -899,7 +928,7 @@
                             <p class="product-description">Print on your T-shirt for as low as</p>
                             <p class="product-price">₦500 depending on the size</p>
                             <div class="product-footer">
-                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Print Now</a>
                             </div>
                         </div>
                     </div>
@@ -911,12 +940,12 @@
                             </button>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">D.I Jobs Printing</h3>
-                            <p class="product-description">Print your D.I jobs for as low as</p>
-                            <p class="product-price">₦100 depending on the size</p>
-                            <p class="product-discount">90% discount on your first delivery fee</p>
+                            <h3 class="product-title">Print ID card</h3>
+                            <p class="product-description">Print your plastic ID card for as low as </p>
+                            <p class="product-price">₦1000 depending on the size</p>
+                            <p class="product-discount">20% discount on your first delivery fee</p>
                             <div class="product-footer">
-                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Print Now</a>
                             </div>
                         </div>
                     </div>
@@ -928,11 +957,11 @@
                             </button>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Object Printing</h3>
-                            <p class="product-description">Print on objects for as low as</p>
-                            <p class="product-price">₦500 depending on the size</p>
+                            <h3 class="product-title">Print your small banners and sticker </h3>
+                            <p class="product-description">Print your small banners, sticker (SAV,FLEX)</p>
+                            <p class="product-price">₦1000 depending on the size</p>
                             <div class="product-footer">
-                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Print Now</a>
                             </div>
                         </div>
                     </div>
@@ -944,11 +973,11 @@
                             </button>
                         </div>
                         <div class="product-content">
-                            <h3 class="product-title">Custom Printing Solutions</h3>
+                            <h3 class="product-title">Print your roll up stand</h3>
                             <p class="product-description">Custom printing solutions for your business</p>
                             <p class="product-price">Contact for pricing</p>
                             <div class="product-footer">
-                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Order Now</a>
+                                <a href="https://wa.me/message/2DEU3RUU33QEF1" class="btn btn-primary btn-block">Print Now</a>
                             </div>
                         </div>
                     </div>
@@ -1004,7 +1033,7 @@
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-        <a href="https://daniel5676.github.io/LANDINGPAGE/ " class="nav-item ">
+        <a href="https://daniel5676.github.io/LANDINGPAGE/" class="nav-item">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
@@ -1012,7 +1041,7 @@
             <i class="fas fa-print"></i>
             <span>Services</span>
         </a>
-        <a href="https://daniel5676.github.io/location/ " class="nav-item">
+        <a href="https://daniel5676.github.io/location/" class="nav-item">
             <i class="fas fa-map-marker-alt"></i>
             <span>Location</span>
         </a>
@@ -1022,16 +1051,72 @@
         </a>
     </nav>
 
+    <!-- WhatsApp Popup Notification -->
+    <div id="whatsapp-popup">
+        <div class="whatsapp-popup-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="whatsapp-popup-icon">
+            <span class="whatsapp-popup-title"></span>
+        </div>
+        <p class="whatsapp-popup-text"></p>
+    </div>
+
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
         <div class="lightbox-content">
             <img src="/placeholder.svg" alt="Product Detail" class="lightbox-image" id="lightbox-image">
-            <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">×</button>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script>
+        // Customer Reviews for WhatsApp Popup
+        const customerReviews = [
+            { name: "John Doe", text: "The banner quality was outstanding, delivered so fast!" },
+            { name: "Sarah Johnson", text: "Customized my T-shirt perfectly, love the design!" },
+            { name: "Michael Brown", text: "ID card printing was quick and professional." },
+            { name: "Emily Davis", text: "Stickers came out vibrant and durable, great job!" },
+            { name: "David Wilson", text: "Roll-up stand printing exceeded expectations!" },
+            { name: "Lisa Taylor", text: "Affordable and high-quality printing services." },
+            { name: "James Anderson", text: "Fast turnaround time, my banners were ready in 24hrs!" },
+            { name: "Anna Martinez", text: "Excellent customer service, very responsive!" },
+            { name: "Robert Lee", text: "Custom object printing was spot on, highly recommend!" },
+            { name: "Sophie Clark", text: "Best printing service I've used, will order again!" }
+        ];
+
+        // WhatsApp Popup Functionality
+        const whatsappPopup = document.getElementById('whatsapp-popup');
+        const whatsappTitle = whatsappPopup.querySelector('.whatsapp-popup-title');
+        const whatsappText = whatsappPopup.querySelector('.whatsapp-popup-text');
+        let currentReviewIndex = 0;
+
+        function showWhatsAppPopup() {
+            // Get the next review
+            const review = customerReviews[currentReviewIndex];
+            whatsappTitle.textContent = review.name;
+            whatsappText.textContent = review.text;
+
+            // Show the popup
+            whatsappPopup.classList.add('active');
+
+            // Hide the popup after 3 seconds
+            setTimeout(() => {
+                whatsappPopup.classList.remove('active');
+            }, 3000);
+
+            // Move to the next review, loop back to 0 if at the end
+            currentReviewIndex = (currentReviewIndex + 1) % customerReviews.length;
+        }
+
+        // Show popup every 5 seconds
+        function startWhatsAppPopup() {
+            showWhatsAppPopup(); // Show first popup immediately
+            setInterval(showWhatsAppPopup, 5000); // Repeat every 5 seconds
+        }
+
+        // Start the popup when the page loads
+        document.addEventListener('DOMContentLoaded', startWhatsAppPopup);
+
         // Hero Slider
         const heroSlides = document.querySelectorAll('.hero-slide');
         const indicators = document.querySelectorAll('.indicator');
